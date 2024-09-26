@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:ContentPageBase
+    x:Class="OneVault.Demo.App.Pages.PageTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:OneVault.Demo.App.Pages"
+    Shell.NavBarIsVisible="True"
+    Shell.PresentationMode="NotAnimated">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False" />
+    </Shell.BackButtonBehavior>
+    <ContentPage.ControlTemplate>
+        <ControlTemplate>
+            <AbsoluteLayout>
+                <ContentPresenter AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="SizeProportional" />
+                <Grid
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="SizeProportional"
+                    BackgroundColor="{DynamicResource Primary}"
+                    IsVisible="{TemplateBinding IsLoading}"
+                    Opacity="0.5">
+                    <ActivityIndicator
+                        HorizontalOptions="Center"
+                        IsRunning="True"
+                        VerticalOptions="Center"
+                        Color="White" />
+                </Grid>
+            </AbsoluteLayout>
+        </ControlTemplate>
+    </ContentPage.ControlTemplate>
+</pages:ContentPageBase>

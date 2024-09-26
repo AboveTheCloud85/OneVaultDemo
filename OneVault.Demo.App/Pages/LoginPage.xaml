@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PageTemplate
+    x:Class="OneVault.Demo.App.Pages.LoginPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:OneVault.Demo.App.Pages"
+    xmlns:vm="clr-namespace:OneVault.Demo.App.ViewModels"
+    Title="Authenticate"
+    x:DataType="vm:LoginViewModel"
+    IsLoading="{Binding IsLoading}">
+    <AbsoluteLayout>
+        <Grid
+            AbsoluteLayout.LayoutBounds="0.5,0.5,250,200"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            ColumnDefinitions=".35*, .65*"
+            RowDefinitions="Auto, Auto, Auto, Auto"
+            RowSpacing="5">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Username:"
+                VerticalOptions="Center" />
+            <Entry
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="{Binding Username}" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Password:"
+                VerticalOptions="Center" />
+            <Entry
+                Grid.Row="1"
+                Grid.Column="1"
+                IsPassword="True"
+                Text="{Binding Password}" />
+            <Button
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Margin="0,5,0,0"
+                Command="{Binding LoginCommand}"
+                HorizontalOptions="Fill"
+                Text="Login"
+                />
+
+            <Label
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Margin="0,5,0,0"
+                Text="{Binding LoginError}"
+                TextColor="Red"
+                VerticalOptions="Center" />
+        </Grid>
+    </AbsoluteLayout>
+</pages:PageTemplate>
